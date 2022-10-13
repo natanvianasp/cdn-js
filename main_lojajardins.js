@@ -4503,9 +4503,10 @@
     ),
       $(".header-wrapper").hide(),
       $("html").addClass("overflow-hidden"),
+      $("#loading").show(),
       setTimeout(function () {
         $("#loading").hide(),
           $(".header-wrapper").show(),
           $("html").removeClass("overflow-hidden");
-      }, 2e3);
+      }, 2000);
   });
