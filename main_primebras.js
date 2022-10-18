@@ -8833,9 +8833,9 @@ $(document).ready(function () {
   );
   
   $('.loading').show();
-  $('.header-wrapper').hide();
+  $('.header').hide();
   setTimeout(function() {
     $('.loading').hide();
-    $('.header-wrapper').show();
+    $('.header').show();
   }, 2000)
 });
