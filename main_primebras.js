@@ -9098,14 +9098,4 @@ $(document).ready(function () {
     
     `
   );
-  if (window.location.href.indexOf("?editable=true") > -1) {
-    $("#loading").hide();
-  } else {
-    $(".loading").show();
-    $(".header").hide();
-    setTimeout(function () {
-      $(".loading").hide();
-      $(".header").show();
-    }, 2000);
-  }
 });
