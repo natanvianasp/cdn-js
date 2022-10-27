@@ -16224,18 +16224,19 @@ $(document).ready(function () {
     `
   );
   var swiper1 = new Swiper(".slide-parceiros", {
-    slidesPerView: 1,
+    slidesPerView: 2.2,
     spaceBetween: 10,
+    loop: true,
     autoplay: {
       delay: 2000,
     },
     breakpoints: {
       640: {
-        slidesPerView: 1.2,
+        slidesPerView: 2.5,
         spaceBetween: 10,
       },
       768: {
-        slidesPerView: 2.3,
+        slidesPerView: 3.5,
         spaceBetween: 10,
       },
       1024: {
