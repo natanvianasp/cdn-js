@@ -9107,9 +9107,7 @@ $(document).ready(function () {
     "https://www.primebras.com.br/p/comprar",
     "https://www.primebras.com.br/p/comprar",
   ];
-  var links = document.querySelectorAll(
-    ".section-category__columns--3item > a"
-  );
+  var links = $(".section-category__columns--3item a");
 
   for (let [i, link] of links.entries()) {
     link.setAttribute("href", linksToReplace[i]);
