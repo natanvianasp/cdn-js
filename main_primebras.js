@@ -9098,4 +9098,20 @@ $(document).ready(function () {
     
     `
   );
+
+  var linksToReplace = [
+    "https://primebras.com.br/p/contato",
+    "https://www.primebras.com.br/lista/casa-moveis-decoracao/seguranca-casa/ferragens-seguranca/",
+    "https://www.primebras.com.br/p/comprar",
+    "https://www.primebras.com.br/lista/casa-moveis-decoracao/seguranca-casa/ferragens-seguranca/",
+    "https://www.primebras.com.br/p/comprar",
+    "https://www.primebras.com.br/p/comprar",
+  ];
+  var links = document.querySelectorAll(
+    ".section-category__columns--3item > a"
+  );
+
+  for (let [i, link] of links.entries()) {
+    link.setAttribute("href", linksToReplace[i]);
+  }
 });
