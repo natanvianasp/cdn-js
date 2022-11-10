@@ -4500,12 +4500,5 @@
   $(function () {
     $("head").append(
       '<link href="https://jardinscasaeconstrucao.com.br/wp-content/themes/jardins/images/favicon/favicon-32x32.png" rel="icon" data-head-react="true">\n      <link href="https://jardinscasaeconstrucao.com.br/wp-content/themes/jardins/images/favicon/apple-touch-icon.png" rel="apple-touch-icon" data-head-react="true">\n      '
-    ),
-      $(".header-wrapper").hide(),
-      $("html").addClass("overflow-hidden"),
-      setTimeout(function () {
-        $("#loading").hide(),
-          $(".header-wrapper").show(),
-          $("html").removeClass("overflow-hidden");
-      }, 2e3);
+    );
   });
