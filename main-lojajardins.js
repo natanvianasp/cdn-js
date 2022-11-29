@@ -4509,7 +4509,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
       `
+
     );
+
+    $('.ui-item__shipping-icon path').css('fill', 'white')
+    $('.ui-item__shipping-icon path').css('ui-item__shipping-label', 'white')
 
     $('body').append(`
     <!-- Google Tag Manager (noscript) -->
