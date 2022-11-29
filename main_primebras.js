@@ -9098,7 +9098,7 @@ $(document).ready(function () {
     
     `
   );
-
+  $('.andes-carousel-snapped__slide img').css('object-fit', 'contain')
   var linksToReplace = [
     "https://primebras.com.br/p/contato",
     "https://www.primebras.com.br/lista/casa-moveis-decoracao/seguranca-casa/ferragens-seguranca/",
