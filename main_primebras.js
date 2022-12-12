@@ -9098,6 +9098,10 @@ $(document).ready(function () {
     
     `
   );
+  $("#search-form").on("submit", function () {
+    window.location.href =
+    window.location.origin + $("#search-input").val();
+  });
 
   var linksToReplace = [
     "https://primebras.com.br/p/contato",
