@@ -4498,26 +4498,26 @@
   );
 }),
   $(function () {
-    $("head").append(
-      `<link href="https://jardinscasaeconstrucao.com.br/wp-content/themes/jardins/images/favicon/favicon-32x32.png" rel="icon" data-head-react="true">\n      <link href="https://jardinscasaeconstrucao.com.br/wp-content/themes/jardins/images/favicon/apple-touch-icon.png" rel="apple-touch-icon" data-head-react="true">\n    
-      <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WGC8SPX');</script>
-<!-- End Google Tag Manager -->
-
+    $("head").append(`
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NF2VXF8');</script>
+    <!-- End Google Tag Manager -->
       `
     );
 
-    $('.ui-item__shipping-icon path').css('fill', 'white')
-    $('.ui-item__shipping-icon path').css('ui-item__shipping-label', 'white')
+
 
     $('body').append(`
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGC8SPX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF2VXF8"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     `)
+
+
+
   });
