@@ -9111,6 +9111,11 @@ $(document).ready(function () {
   <!-- End Google Tag Manager (noscript) -->
   `);
   $('.andes-carousel-snapped__slide img').css('object-fit', 'contain')
+  $("#search-form").on("submit", function () {
+    window.location.href =
+    window.location.origin + $("#search-input").val();
+  });
+
   var linksToReplace = [
     "https://primebras.com.br/p/contato",
     "https://www.primebras.com.br/lista/casa-moveis-decoracao/seguranca-casa/ferragens-seguranca/",

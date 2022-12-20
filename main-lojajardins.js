@@ -4498,6 +4498,13 @@
   );
 }),
   $(function () {
+
+
+    $("#search-form").on("submit", function () {
+      window.location.href =
+        "https://www.lojajardins.com.br/" + $("#search-input").val();
+    });
+
     $("head").append(
       `<link href="https://jardinscasaeconstrucao.com.br/wp-content/themes/jardins/images/favicon/favicon-32x32.png" rel="icon" data-head-react="true">\n      <link href="https://jardinscasaeconstrucao.com.br/wp-content/themes/jardins/images/favicon/apple-touch-icon.png" rel="apple-touch-icon" data-head-react="true">\n    
       <!-- Google Tag Manager -->
