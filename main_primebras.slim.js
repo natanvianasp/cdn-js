@@ -5510,8 +5510,24 @@
 }),
   $(document).ready(function () {
     $("head").append(
-      '\n    <link rel="apple-touch-icon" sizes="57x57" href=https://foxdigital.com.br/mlshop/primebras//apple-icon-57x57.png">\n    <link rel="apple-touch-icon" sizes="60x60" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-60x60.png">\n    <link rel="apple-touch-icon" sizes="72x72" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-72x72.png">\n    <link rel="apple-touch-icon" sizes="76x76" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-76x76.png">\n    <link rel="apple-touch-icon" sizes="114x114" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-114x114.png">\n    <link rel="apple-touch-icon" sizes="120x120" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-120x120.png">\n    <link rel="apple-touch-icon" sizes="144x144" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-144x144.png">\n    <link rel="apple-touch-icon" sizes="152x152" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-152x152.png">\n    <link rel="apple-touch-icon" sizes="180x180" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-180x180.png">\n    <link rel="icon" type="image/png" sizes="192x192"  href="https://foxdigital.com.br/mlshop/primebras//android-icon-192x192.png">\n    <link rel="icon" type="image/png" sizes="32x32" href="https://foxdigital.com.br/mlshop/primebras//favicon-32x32.png">\n    <link rel="icon" type="image/png" sizes="96x96" href="https://foxdigital.com.br/mlshop/primebras//favicon-96x96.png">\n    <link rel="icon" type="image/png" sizes="16x16" href="https://foxdigital.com.br/mlshop/primebras//favicon-16x16.png">\n\n    \n    '
+      `   <link rel="apple-touch-icon" sizes="57x57" href=https://foxdigital.com.br/mlshop/primebras//apple-icon-57x57.png">\n    <link rel="apple-touch-icon" sizes="60x60" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-60x60.png">\n    <link rel="apple-touch-icon" sizes="72x72" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-72x72.png">\n    <link rel="apple-touch-icon" sizes="76x76" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-76x76.png">\n    <link rel="apple-touch-icon" sizes="114x114" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-114x114.png">\n    <link rel="apple-touch-icon" sizes="120x120" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-120x120.png">\n    <link rel="apple-touch-icon" sizes="144x144" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-144x144.png">\n    <link rel="apple-touch-icon" sizes="152x152" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-152x152.png">\n    <link rel="apple-touch-icon" sizes="180x180" href="https://foxdigital.com.br/mlshop/primebras//apple-icon-180x180.png">\n    <link rel="icon" type="image/png" sizes="192x192"  href="https://foxdigital.com.br/mlshop/primebras//android-icon-192x192.png">\n    <link rel="icon" type="image/png" sizes="32x32" href="https://foxdigital.com.br/mlshop/primebras//favicon-32x32.png">\n    <link rel="icon" type="image/png" sizes="96x96" href="https://foxdigital.com.br/mlshop/primebras//favicon-96x96.png">\n    <link rel="icon" type="image/png" sizes="16x16" href="https://foxdigital.com.br/mlshop/primebras//favicon-16x16.png">\n
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-5S3ZVW9');</script>
+      <!-- End Google Tag Manager -->
+      `
     );
+  
+    $("body").append(`
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S3ZVW9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    `);
+    
     $('.andes-carousel-snapped__slide img').css('object-fit', 'contain');
       window.location.href.indexOf("?editable=true") > -1
         ? $("#loading").hide()

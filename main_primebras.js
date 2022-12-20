@@ -25,11 +25,11 @@
     module.exports = global.document
       ? factory(global, true)
       : function (w) {
-          if (!w.document) {
-            throw new Error("jQuery requires a window with a document");
-          }
-          return factory(w);
-        };
+        if (!w.document) {
+          throw new Error("jQuery requires a window with a document");
+        }
+        return factory(w);
+      };
   } else {
     factory(global);
   }
@@ -50,11 +50,11 @@
 
   var flat = arr.flat
     ? function (array) {
-        return arr.flat.call(array);
-      }
+      return arr.flat.call(array);
+    }
     : function (array) {
-        return arr.concat.apply([], array);
-      };
+      return arr.concat.apply([], array);
+    };
 
   var push = arr.push;
 
@@ -144,7 +144,7 @@
   // unguarded in another place, it seems safer to define global only for this module
 
   var version =
-      "3.6.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-deprecated/ajax-event-alias,-effects,-effects/Tween,-effects/animatedSelector",
+    "3.6.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-deprecated/ajax-event-alias,-effects,-effects/Tween,-effects/animatedSelector",
     // Define a local copy of jQuery
     jQuery = function (selector, context) {
       // The jQuery object is actually just the init constructor 'enhanced'
@@ -337,7 +337,7 @@
       throw new Error(msg);
     },
 
-    noop: function () {},
+    noop: function () { },
 
     isPlainObject: function (obj) {
       var proto, Ctor;
@@ -658,14 +658,14 @@
           PSEUDO: new RegExp("^" + pseudos),
           CHILD: new RegExp(
             "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" +
-              whitespace +
-              "*(even|odd|(([+-]|)(\\d*)n|)" +
-              whitespace +
-              "*(?:([+-]|)" +
-              whitespace +
-              "*(\\d+)|))" +
-              whitespace +
-              "*\\)|)",
+            whitespace +
+            "*(even|odd|(([+-]|)(\\d*)n|)" +
+            whitespace +
+            "*(?:([+-]|)" +
+            whitespace +
+            "*(\\d+)|))" +
+            whitespace +
+            "*\\)|)",
             "i"
           ),
           bool: new RegExp("^(?:" + booleans + ")$", "i"),
@@ -674,12 +674,12 @@
           // We use this for POS matching in `select`
           needsContext: new RegExp(
             "^" +
-              whitespace +
-              "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
-              whitespace +
-              "*((?:-\\d)?\\d*)" +
-              whitespace +
-              "*\\)|)(?=[^-]|$)",
+            whitespace +
+            "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
+            whitespace +
+            "*((?:-\\d)?\\d*)" +
+            whitespace +
+            "*\\)|)(?=[^-]|$)",
             "i"
           ),
         },
@@ -701,14 +701,14 @@
 
           return nonHex
             ? // Strip the backslash prefix from a non-hex escape sequence
-              nonHex
+            nonHex
             : // Replace a hexadecimal escape sequence with the encoded Unicode code point
             // Support: IE <=11+
             // For values outside the Basic Multilingual Plane (BMP), manually construct a
             // surrogate pair
             high < 0
-            ? String.fromCharCode(high + 0x10000)
-            : String.fromCharCode(
+              ? String.fromCharCode(high + 0x10000)
+              : String.fromCharCode(
                 (high >> 10) | 0xd800,
                 (high & 0x3ff) | 0xdc00
               );
@@ -767,19 +767,19 @@
         push = {
           apply: arr.length
             ? // Leverage slice if possible
-              function (target, els) {
-                pushNative.apply(target, slice.call(els));
-              }
+            function (target, els) {
+              pushNative.apply(target, slice.call(els));
+            }
             : // Support: IE<9
-              // Otherwise append directly
-              function (target, els) {
-                var j = target.length,
-                  i = 0;
+            // Otherwise append directly
+            function (target, els) {
+              var j = target.length,
+                i = 0;
 
-                // Can't trust NodeList.length
-                while ((target[j++] = els[i++])) {}
-                target.length = j - 1;
-              },
+              // Can't trust NodeList.length
+              while ((target[j++] = els[i++])) { }
+              target.length = j - 1;
+            },
         };
       }
 
@@ -1216,7 +1216,7 @@
         });
 
         /* Attributes
-	---------------------------------------------------------------------- */
+  ---------------------------------------------------------------------- */
 
         // Support: IE<8
         // Verify that getAttribute really returns attributes and not properties
@@ -1227,7 +1227,7 @@
         });
 
         /* getElement(s)By*
-	---------------------------------------------------------------------- */
+  ---------------------------------------------------------------------- */
 
         // Check if getElementsByTagName("*") returns only elements
         support.getElementsByTagName = assert(function (el) {
@@ -1318,33 +1318,33 @@
         // Tag
         Expr.find["TAG"] = support.getElementsByTagName
           ? function (tag, context) {
-              if (typeof context.getElementsByTagName !== "undefined") {
-                return context.getElementsByTagName(tag);
+            if (typeof context.getElementsByTagName !== "undefined") {
+              return context.getElementsByTagName(tag);
 
-                // DocumentFragment nodes don't have gEBTN
-              } else if (support.qsa) {
-                return context.querySelectorAll(tag);
-              }
+              // DocumentFragment nodes don't have gEBTN
+            } else if (support.qsa) {
+              return context.querySelectorAll(tag);
             }
+          }
           : function (tag, context) {
-              var elem,
-                tmp = [],
-                i = 0,
-                // By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
-                results = context.getElementsByTagName(tag);
+            var elem,
+              tmp = [],
+              i = 0,
+              // By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
+              results = context.getElementsByTagName(tag);
 
-              // Filter out possible comments
-              if (tag === "*") {
-                while ((elem = results[i++])) {
-                  if (elem.nodeType === 1) {
-                    tmp.push(elem);
-                  }
+            // Filter out possible comments
+            if (tag === "*") {
+              while ((elem = results[i++])) {
+                if (elem.nodeType === 1) {
+                  tmp.push(elem);
                 }
-
-                return tmp;
               }
-              return results;
-            };
+
+              return tmp;
+            }
+            return results;
+          };
 
         // Class
         Expr.find["CLASS"] =
@@ -1359,7 +1359,7 @@
           };
 
         /* QSA/matchesSelector
-	---------------------------------------------------------------------- */
+  ---------------------------------------------------------------------- */
 
         // QSA and matchesSelector support
 
@@ -1425,12 +1425,12 @@
             if (!el.querySelectorAll("[name='']").length) {
               rbuggyQSA.push(
                 "\\[" +
-                  whitespace +
-                  "*name" +
-                  whitespace +
-                  "*=" +
-                  whitespace +
-                  "*(?:''|\"\")"
+                whitespace +
+                "*name" +
+                whitespace +
+                "*=" +
+                whitespace +
+                "*(?:''|\"\")"
               );
             }
 
@@ -1518,7 +1518,7 @@
           rbuggyMatches.length && new RegExp(rbuggyMatches.join("|"));
 
         /* Contains
-	---------------------------------------------------------------------- */
+  ---------------------------------------------------------------------- */
         hasCompare = rnative.test(docElem.compareDocumentPosition);
 
         // Element contains another
@@ -1527,166 +1527,166 @@
         contains =
           hasCompare || rnative.test(docElem.contains)
             ? function (a, b) {
-                var adown = a.nodeType === 9 ? a.documentElement : a,
-                  bup = b && b.parentNode;
-                return (
-                  a === bup ||
-                  !!(
-                    bup &&
-                    bup.nodeType === 1 &&
-                    (adown.contains
-                      ? adown.contains(bup)
-                      : a.compareDocumentPosition &&
-                        a.compareDocumentPosition(bup) & 16)
-                  )
-                );
-              }
+              var adown = a.nodeType === 9 ? a.documentElement : a,
+                bup = b && b.parentNode;
+              return (
+                a === bup ||
+                !!(
+                  bup &&
+                  bup.nodeType === 1 &&
+                  (adown.contains
+                    ? adown.contains(bup)
+                    : a.compareDocumentPosition &&
+                    a.compareDocumentPosition(bup) & 16)
+                )
+              );
+            }
             : function (a, b) {
-                if (b) {
-                  while ((b = b.parentNode)) {
-                    if (b === a) {
-                      return true;
-                    }
+              if (b) {
+                while ((b = b.parentNode)) {
+                  if (b === a) {
+                    return true;
                   }
                 }
-                return false;
-              };
+              }
+              return false;
+            };
 
         /* Sorting
-	---------------------------------------------------------------------- */
+  ---------------------------------------------------------------------- */
 
         // Document order sorting
         sortOrder = hasCompare
           ? function (a, b) {
-              // Flag for duplicate removal
-              if (a === b) {
-                hasDuplicate = true;
-                return 0;
-              }
+            // Flag for duplicate removal
+            if (a === b) {
+              hasDuplicate = true;
+              return 0;
+            }
 
-              // Sort on method existence if only one input has compareDocumentPosition
-              var compare =
-                !a.compareDocumentPosition - !b.compareDocumentPosition;
-              if (compare) {
-                return compare;
-              }
+            // Sort on method existence if only one input has compareDocumentPosition
+            var compare =
+              !a.compareDocumentPosition - !b.compareDocumentPosition;
+            if (compare) {
+              return compare;
+            }
 
-              // Calculate position if both inputs belong to the same document
+            // Calculate position if both inputs belong to the same document
+            // Support: IE 11+, Edge 17 - 18+
+            // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+            // two documents; shallow comparisons work.
+            // eslint-disable-next-line eqeqeq
+            compare =
+              (a.ownerDocument || a) == (b.ownerDocument || b)
+                ? a.compareDocumentPosition(b)
+                : // Otherwise we know they are disconnected
+                1;
+
+            // Disconnected nodes
+            if (
+              compare & 1 ||
+              (!support.sortDetached &&
+                b.compareDocumentPosition(a) === compare)
+            ) {
+              // Choose the first element that is related to our preferred document
               // Support: IE 11+, Edge 17 - 18+
               // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
               // two documents; shallow comparisons work.
               // eslint-disable-next-line eqeqeq
-              compare =
-                (a.ownerDocument || a) == (b.ownerDocument || b)
-                  ? a.compareDocumentPosition(b)
-                  : // Otherwise we know they are disconnected
-                    1;
-
-              // Disconnected nodes
               if (
-                compare & 1 ||
-                (!support.sortDetached &&
-                  b.compareDocumentPosition(a) === compare)
+                a == document ||
+                (a.ownerDocument == preferredDoc && contains(preferredDoc, a))
               ) {
-                // Choose the first element that is related to our preferred document
-                // Support: IE 11+, Edge 17 - 18+
-                // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                // two documents; shallow comparisons work.
-                // eslint-disable-next-line eqeqeq
-                if (
-                  a == document ||
-                  (a.ownerDocument == preferredDoc && contains(preferredDoc, a))
-                ) {
-                  return -1;
-                }
-
-                // Support: IE 11+, Edge 17 - 18+
-                // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                // two documents; shallow comparisons work.
-                // eslint-disable-next-line eqeqeq
-                if (
-                  b == document ||
-                  (b.ownerDocument == preferredDoc && contains(preferredDoc, b))
-                ) {
-                  return 1;
-                }
-
-                // Maintain original order
-                return sortInput
-                  ? indexOf(sortInput, a) - indexOf(sortInput, b)
-                  : 0;
+                return -1;
               }
 
-              return compare & 4 ? -1 : 1;
+              // Support: IE 11+, Edge 17 - 18+
+              // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+              // two documents; shallow comparisons work.
+              // eslint-disable-next-line eqeqeq
+              if (
+                b == document ||
+                (b.ownerDocument == preferredDoc && contains(preferredDoc, b))
+              ) {
+                return 1;
+              }
+
+              // Maintain original order
+              return sortInput
+                ? indexOf(sortInput, a) - indexOf(sortInput, b)
+                : 0;
             }
+
+            return compare & 4 ? -1 : 1;
+          }
           : function (a, b) {
-              // Exit early if the nodes are identical
-              if (a === b) {
-                hasDuplicate = true;
-                return 0;
-              }
+            // Exit early if the nodes are identical
+            if (a === b) {
+              hasDuplicate = true;
+              return 0;
+            }
 
-              var cur,
-                i = 0,
-                aup = a.parentNode,
-                bup = b.parentNode,
-                ap = [a],
-                bp = [b];
+            var cur,
+              i = 0,
+              aup = a.parentNode,
+              bup = b.parentNode,
+              ap = [a],
+              bp = [b];
 
-              // Parentless nodes are either documents or disconnected
-              if (!aup || !bup) {
-                // Support: IE 11+, Edge 17 - 18+
-                // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                // two documents; shallow comparisons work.
-                /* eslint-disable eqeqeq */
-                return a == document
-                  ? -1
-                  : b == document
+            // Parentless nodes are either documents or disconnected
+            if (!aup || !bup) {
+              // Support: IE 11+, Edge 17 - 18+
+              // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+              // two documents; shallow comparisons work.
+              /* eslint-disable eqeqeq */
+              return a == document
+                ? -1
+                : b == document
                   ? 1
                   : /* eslint-enable eqeqeq */
                   aup
-                  ? -1
-                  : bup
-                  ? 1
-                  : sortInput
-                  ? indexOf(sortInput, a) - indexOf(sortInput, b)
-                  : 0;
+                    ? -1
+                    : bup
+                      ? 1
+                      : sortInput
+                        ? indexOf(sortInput, a) - indexOf(sortInput, b)
+                        : 0;
 
-                // If the nodes are siblings, we can do a quick check
-              } else if (aup === bup) {
-                return siblingCheck(a, b);
-              }
+              // If the nodes are siblings, we can do a quick check
+            } else if (aup === bup) {
+              return siblingCheck(a, b);
+            }
 
-              // Otherwise we need full lists of their ancestors for comparison
-              cur = a;
-              while ((cur = cur.parentNode)) {
-                ap.unshift(cur);
-              }
-              cur = b;
-              while ((cur = cur.parentNode)) {
-                bp.unshift(cur);
-              }
+            // Otherwise we need full lists of their ancestors for comparison
+            cur = a;
+            while ((cur = cur.parentNode)) {
+              ap.unshift(cur);
+            }
+            cur = b;
+            while ((cur = cur.parentNode)) {
+              bp.unshift(cur);
+            }
 
-              // Walk down the tree looking for a discrepancy
-              while (ap[i] === bp[i]) {
-                i++;
-              }
+            // Walk down the tree looking for a discrepancy
+            while (ap[i] === bp[i]) {
+              i++;
+            }
 
-              return i
-                ? // Do a sibling check if the nodes have a common ancestor
-                  siblingCheck(ap[i], bp[i])
-                : // Otherwise nodes in our document sort first
-                // Support: IE 11+, Edge 17 - 18+
-                // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-                // two documents; shallow comparisons work.
-                /* eslint-disable eqeqeq */
-                ap[i] == preferredDoc
+            return i
+              ? // Do a sibling check if the nodes have a common ancestor
+              siblingCheck(ap[i], bp[i])
+              : // Otherwise nodes in our document sort first
+              // Support: IE 11+, Edge 17 - 18+
+              // IE/Edge sometimes throw a "Permission denied" error when strict-comparing
+              // two documents; shallow comparisons work.
+              /* eslint-disable eqeqeq */
+              ap[i] == preferredDoc
                 ? -1
                 : bp[i] == preferredDoc
-                ? 1
-                : /* eslint-enable eqeqeq */
+                  ? 1
+                  : /* eslint-enable eqeqeq */
                   0;
-            };
+          };
 
         return document;
       };
@@ -1758,10 +1758,10 @@
         return val !== undefined
           ? val
           : support.attributes || !documentIsHTML
-          ? elem.getAttribute(name)
-          : (val = elem.getAttributeNode(name)) && val.specified
-          ? val.value
-          : null;
+            ? elem.getAttribute(name)
+            : (val = elem.getAttributeNode(name)) && val.specified
+              ? val.value
+              : null;
       };
 
       Sizzle.escape = function (sel) {
@@ -1879,15 +1879,15 @@
 
           CHILD: function (match) {
             /* matches from matchExpr["CHILD"]
-				1 type (only|nth|...)
-				2 what (child|of-type)
-				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
-				4 xn-component of xn+y argument ([+-]?\d*n|)
-				5 sign of xn-component
-				6 x of xn-component
-				7 sign of y-component
-				8 y of y-component
-			*/
+        1 type (only|nth|...)
+        2 what (child|of-type)
+        3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
+        4 xn-component of xn+y argument ([+-]?\d*n|)
+        5 sign of xn-component
+        6 x of xn-component
+        7 sign of y-component
+        8 y of y-component
+      */
             match[1] = match[1].toLowerCase();
 
             if (match[1].slice(0, 3) === "nth") {
@@ -1951,13 +1951,13 @@
               .toLowerCase();
             return nodeNameSelector === "*"
               ? function () {
-                  return true;
-                }
+                return true;
+              }
               : function (elem) {
-                  return (
-                    elem.nodeName && elem.nodeName.toLowerCase() === nodeName
-                  );
-                };
+                return (
+                  elem.nodeName && elem.nodeName.toLowerCase() === nodeName
+                );
+              };
           },
 
           CLASS: function (className) {
@@ -1971,9 +1971,9 @@
                 classCache(className, function (elem) {
                   return pattern.test(
                     (typeof elem.className === "string" && elem.className) ||
-                      (typeof elem.getAttribute !== "undefined" &&
-                        elem.getAttribute("class")) ||
-                      ""
+                    (typeof elem.getAttribute !== "undefined" &&
+                      elem.getAttribute("class")) ||
+                    ""
                   );
                 }))
             );
@@ -1997,21 +1997,21 @@
               return operator === "="
                 ? result === check
                 : operator === "!="
-                ? result !== check
-                : operator === "^="
-                ? check && result.indexOf(check) === 0
-                : operator === "*="
-                ? check && result.indexOf(check) > -1
-                : operator === "$="
-                ? check && result.slice(-check.length) === check
-                : operator === "~="
-                ? (" " + result.replace(rwhitespace, " ") + " ").indexOf(
-                    check
-                  ) > -1
-                : operator === "|="
-                ? result === check ||
-                  result.slice(0, check.length + 1) === check + "-"
-                : false;
+                  ? result !== check
+                  : operator === "^="
+                    ? check && result.indexOf(check) === 0
+                    : operator === "*="
+                      ? check && result.indexOf(check) > -1
+                      : operator === "$="
+                        ? check && result.slice(-check.length) === check
+                        : operator === "~="
+                          ? (" " + result.replace(rwhitespace, " ") + " ").indexOf(
+                            check
+                          ) > -1
+                          : operator === "|="
+                            ? result === check ||
+                            result.slice(0, check.length + 1) === check + "-"
+                            : false;
               /* eslint-enable max-len */
             };
           },
@@ -2023,53 +2023,84 @@
 
             return first === 1 && last === 0
               ? // Shortcut for :nth-*(n)
-                function (elem) {
-                  return !!elem.parentNode;
-                }
+              function (elem) {
+                return !!elem.parentNode;
+              }
               : function (elem, _context, xml) {
-                  var cache,
-                    uniqueCache,
-                    outerCache,
-                    node,
-                    nodeIndex,
-                    start,
-                    dir =
-                      simple !== forward ? "nextSibling" : "previousSibling",
-                    parent = elem.parentNode,
-                    name = ofType && elem.nodeName.toLowerCase(),
-                    useCache = !xml && !ofType,
-                    diff = false;
+                var cache,
+                  uniqueCache,
+                  outerCache,
+                  node,
+                  nodeIndex,
+                  start,
+                  dir =
+                    simple !== forward ? "nextSibling" : "previousSibling",
+                  parent = elem.parentNode,
+                  name = ofType && elem.nodeName.toLowerCase(),
+                  useCache = !xml && !ofType,
+                  diff = false;
 
-                  if (parent) {
-                    // :(first|last|only)-(child|of-type)
-                    if (simple) {
-                      while (dir) {
-                        node = elem;
-                        while ((node = node[dir])) {
-                          if (
-                            ofType
-                              ? node.nodeName.toLowerCase() === name
-                              : node.nodeType === 1
-                          ) {
-                            return false;
-                          }
+                if (parent) {
+                  // :(first|last|only)-(child|of-type)
+                  if (simple) {
+                    while (dir) {
+                      node = elem;
+                      while ((node = node[dir])) {
+                        if (
+                          ofType
+                            ? node.nodeName.toLowerCase() === name
+                            : node.nodeType === 1
+                        ) {
+                          return false;
                         }
-
-                        // Reverse direction for :only-* (if we haven't yet done so)
-                        start = dir =
-                          type === "only" && !start && "nextSibling";
                       }
-                      return true;
+
+                      // Reverse direction for :only-* (if we haven't yet done so)
+                      start = dir =
+                        type === "only" && !start && "nextSibling";
                     }
+                    return true;
+                  }
 
-                    start = [forward ? parent.firstChild : parent.lastChild];
+                  start = [forward ? parent.firstChild : parent.lastChild];
 
-                    // non-xml :nth-child(...) stores cache data on `parent`
-                    if (forward && useCache) {
-                      // Seek `elem` from a previously-cached index
+                  // non-xml :nth-child(...) stores cache data on `parent`
+                  if (forward && useCache) {
+                    // Seek `elem` from a previously-cached index
 
+                    // ...in a gzip-friendly way
+                    node = parent;
+                    outerCache = node[expando] || (node[expando] = {});
+
+                    // Support: IE <9 only
+                    // Defend against cloned attroperties (jQuery gh-1709)
+                    uniqueCache =
+                      outerCache[node.uniqueID] ||
+                      (outerCache[node.uniqueID] = {});
+
+                    cache = uniqueCache[type] || [];
+                    nodeIndex = cache[0] === dirruns && cache[1];
+                    diff = nodeIndex && cache[2];
+                    node = nodeIndex && parent.childNodes[nodeIndex];
+
+                    while (
+                      (node =
+                        (++nodeIndex && node && node[dir]) ||
+                        // Fallback to seeking `elem` from the start
+                        (diff = nodeIndex = 0) ||
+                        start.pop())
+                    ) {
+                      // When found, cache indexes on `parent` and break
+                      if (node.nodeType === 1 && ++diff && node === elem) {
+                        uniqueCache[type] = [dirruns, nodeIndex, diff];
+                        break;
+                      }
+                    }
+                  } else {
+                    // Use previously-cached element index if available
+                    if (useCache) {
                       // ...in a gzip-friendly way
-                      node = parent;
+                      node = elem;
                       outerCache = node[expando] || (node[expando] = {});
 
                       // Support: IE <9 only
@@ -2080,86 +2111,55 @@
 
                       cache = uniqueCache[type] || [];
                       nodeIndex = cache[0] === dirruns && cache[1];
-                      diff = nodeIndex && cache[2];
-                      node = nodeIndex && parent.childNodes[nodeIndex];
+                      diff = nodeIndex;
+                    }
 
+                    // xml :nth-child(...)
+                    // or :nth-last-child(...) or :nth(-last)?-of-type(...)
+                    if (diff === false) {
+                      // Use the same loop as above to seek `elem` from the start
                       while (
                         (node =
                           (++nodeIndex && node && node[dir]) ||
-                          // Fallback to seeking `elem` from the start
                           (diff = nodeIndex = 0) ||
                           start.pop())
                       ) {
-                        // When found, cache indexes on `parent` and break
-                        if (node.nodeType === 1 && ++diff && node === elem) {
-                          uniqueCache[type] = [dirruns, nodeIndex, diff];
-                          break;
-                        }
-                      }
-                    } else {
-                      // Use previously-cached element index if available
-                      if (useCache) {
-                        // ...in a gzip-friendly way
-                        node = elem;
-                        outerCache = node[expando] || (node[expando] = {});
-
-                        // Support: IE <9 only
-                        // Defend against cloned attroperties (jQuery gh-1709)
-                        uniqueCache =
-                          outerCache[node.uniqueID] ||
-                          (outerCache[node.uniqueID] = {});
-
-                        cache = uniqueCache[type] || [];
-                        nodeIndex = cache[0] === dirruns && cache[1];
-                        diff = nodeIndex;
-                      }
-
-                      // xml :nth-child(...)
-                      // or :nth-last-child(...) or :nth(-last)?-of-type(...)
-                      if (diff === false) {
-                        // Use the same loop as above to seek `elem` from the start
-                        while (
-                          (node =
-                            (++nodeIndex && node && node[dir]) ||
-                            (diff = nodeIndex = 0) ||
-                            start.pop())
+                        if (
+                          (ofType
+                            ? node.nodeName.toLowerCase() === name
+                            : node.nodeType === 1) &&
+                          ++diff
                         ) {
-                          if (
-                            (ofType
-                              ? node.nodeName.toLowerCase() === name
-                              : node.nodeType === 1) &&
-                            ++diff
-                          ) {
-                            // Cache the index of each encountered element
-                            if (useCache) {
-                              outerCache =
-                                node[expando] || (node[expando] = {});
+                          // Cache the index of each encountered element
+                          if (useCache) {
+                            outerCache =
+                              node[expando] || (node[expando] = {});
 
-                              // Support: IE <9 only
-                              // Defend against cloned attroperties (jQuery gh-1709)
-                              uniqueCache =
-                                outerCache[node.uniqueID] ||
-                                (outerCache[node.uniqueID] = {});
+                            // Support: IE <9 only
+                            // Defend against cloned attroperties (jQuery gh-1709)
+                            uniqueCache =
+                              outerCache[node.uniqueID] ||
+                              (outerCache[node.uniqueID] = {});
 
-                              uniqueCache[type] = [dirruns, diff];
-                            }
+                            uniqueCache[type] = [dirruns, diff];
+                          }
 
-                            if (node === elem) {
-                              break;
-                            }
+                          if (node === elem) {
+                            break;
                           }
                         }
                       }
                     }
-
-                    // Incorporate the offset, then check against cycle size
-                    diff -= last;
-                    return (
-                      diff === first ||
-                      (diff % first === 0 && diff / first >= 0)
-                    );
                   }
-                };
+
+                  // Incorporate the offset, then check against cycle size
+                  diff -= last;
+                  return (
+                    diff === first ||
+                    (diff % first === 0 && diff / first >= 0)
+                  );
+                }
+              };
           },
 
           PSEUDO: function (pseudo, argument) {
@@ -2185,17 +2185,17 @@
               args = [pseudo, pseudo, "", argument];
               return Expr.setFilters.hasOwnProperty(pseudo.toLowerCase())
                 ? markFunction(function (seed, matches) {
-                    var idx,
-                      matched = fn(seed, argument),
-                      i = matched.length;
-                    while (i--) {
-                      idx = indexOf(seed, matched[i]);
-                      seed[idx] = !(matches[idx] = matched[i]);
-                    }
-                  })
+                  var idx,
+                    matched = fn(seed, argument),
+                    i = matched.length;
+                  while (i--) {
+                    idx = indexOf(seed, matched[i]);
+                    seed[idx] = !(matches[idx] = matched[i]);
+                  }
+                })
                 : function (elem) {
-                    return fn(elem, 0, args);
-                  };
+                  return fn(elem, 0, args);
+                };
             }
 
             return fn;
@@ -2214,25 +2214,25 @@
 
             return matcher[expando]
               ? markFunction(function (seed, matches, _context, xml) {
-                  var elem,
-                    unmatched = matcher(seed, null, xml, []),
-                    i = seed.length;
+                var elem,
+                  unmatched = matcher(seed, null, xml, []),
+                  i = seed.length;
 
-                  // Match elements unmatched by `matcher`
-                  while (i--) {
-                    if ((elem = unmatched[i])) {
-                      seed[i] = !(matches[i] = elem);
-                    }
+                // Match elements unmatched by `matcher`
+                while (i--) {
+                  if ((elem = unmatched[i])) {
+                    seed[i] = !(matches[i] = elem);
                   }
-                })
+                }
+              })
               : function (elem, _context, xml) {
-                  input[0] = elem;
-                  matcher(input, null, xml, results);
+                input[0] = elem;
+                matcher(input, null, xml, results);
 
-                  // Don't keep the element (issue #299)
-                  input[0] = null;
-                  return !results.pop();
-                };
+                // Don't keep the element (issue #299)
+                input[0] = null;
+                return !results.pop();
+              };
           }),
 
           has: markFunction(function (selector) {
@@ -2268,7 +2268,7 @@
                   (elemLang = documentIsHTML
                     ? elem.lang
                     : elem.getAttribute("xml:lang") ||
-                      elem.getAttribute("lang"))
+                    elem.getAttribute("lang"))
                 ) {
                   elemLang = elemLang.toLowerCase();
                   return (
@@ -2407,9 +2407,9 @@
               argument < 0
                 ? argument + length
                 : argument > length
-                ? length
-                : argument;
-            for (; --i >= 0; ) {
+                  ? length
+                  : argument;
+            for (; --i >= 0;) {
               matchIndexes.push(i);
             }
             return matchIndexes;
@@ -2417,7 +2417,7 @@
 
           gt: createPositionalPseudo(function (matchIndexes, length, argument) {
             var i = argument < 0 ? argument + length : argument;
-            for (; ++i < length; ) {
+            for (; ++i < length;) {
               matchIndexes.push(i);
             }
             return matchIndexes;
@@ -2442,7 +2442,7 @@
       }
 
       // Easy API for creating new setFilters
-      function setFilters() {}
+      function setFilters() { }
       setFilters.prototype = Expr.filters = Expr.pseudos;
       Expr.setFilters = new setFilters();
 
@@ -2515,8 +2515,8 @@
         return parseOnly
           ? soFar.length
           : soFar
-          ? Sizzle.error(selector)
-          : // Cache the tokens
+            ? Sizzle.error(selector)
+            : // Cache the tokens
             tokenCache(selector, groups).slice(0);
       };
 
@@ -2539,77 +2539,77 @@
 
         return combinator.first
           ? // Check against closest ancestor/preceding element
-            function (elem, context, xml) {
+          function (elem, context, xml) {
+            while ((elem = elem[dir])) {
+              if (elem.nodeType === 1 || checkNonElements) {
+                return matcher(elem, context, xml);
+              }
+            }
+            return false;
+          }
+          : // Check against all ancestor/preceding elements
+          function (elem, context, xml) {
+            var oldCache,
+              uniqueCache,
+              outerCache,
+              newCache = [dirruns, doneName];
+
+            // We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
+            if (xml) {
               while ((elem = elem[dir])) {
                 if (elem.nodeType === 1 || checkNonElements) {
-                  return matcher(elem, context, xml);
+                  if (matcher(elem, context, xml)) {
+                    return true;
+                  }
                 }
               }
-              return false;
-            }
-          : // Check against all ancestor/preceding elements
-            function (elem, context, xml) {
-              var oldCache,
-                uniqueCache,
-                outerCache,
-                newCache = [dirruns, doneName];
+            } else {
+              while ((elem = elem[dir])) {
+                if (elem.nodeType === 1 || checkNonElements) {
+                  outerCache = elem[expando] || (elem[expando] = {});
 
-              // We can't set arbitrary data on XML nodes, so they don't benefit from combinator caching
-              if (xml) {
-                while ((elem = elem[dir])) {
-                  if (elem.nodeType === 1 || checkNonElements) {
-                    if (matcher(elem, context, xml)) {
+                  // Support: IE <9 only
+                  // Defend against cloned attroperties (jQuery gh-1709)
+                  uniqueCache =
+                    outerCache[elem.uniqueID] ||
+                    (outerCache[elem.uniqueID] = {});
+
+                  if (skip && skip === elem.nodeName.toLowerCase()) {
+                    elem = elem[dir] || elem;
+                  } else if (
+                    (oldCache = uniqueCache[key]) &&
+                    oldCache[0] === dirruns &&
+                    oldCache[1] === doneName
+                  ) {
+                    // Assign to newCache so results back-propagate to previous elements
+                    return (newCache[2] = oldCache[2]);
+                  } else {
+                    // Reuse newcache so results back-propagate to previous elements
+                    uniqueCache[key] = newCache;
+
+                    // A match means we're done; a fail means we have to keep checking
+                    if ((newCache[2] = matcher(elem, context, xml))) {
                       return true;
                     }
                   }
                 }
-              } else {
-                while ((elem = elem[dir])) {
-                  if (elem.nodeType === 1 || checkNonElements) {
-                    outerCache = elem[expando] || (elem[expando] = {});
-
-                    // Support: IE <9 only
-                    // Defend against cloned attroperties (jQuery gh-1709)
-                    uniqueCache =
-                      outerCache[elem.uniqueID] ||
-                      (outerCache[elem.uniqueID] = {});
-
-                    if (skip && skip === elem.nodeName.toLowerCase()) {
-                      elem = elem[dir] || elem;
-                    } else if (
-                      (oldCache = uniqueCache[key]) &&
-                      oldCache[0] === dirruns &&
-                      oldCache[1] === doneName
-                    ) {
-                      // Assign to newCache so results back-propagate to previous elements
-                      return (newCache[2] = oldCache[2]);
-                    } else {
-                      // Reuse newcache so results back-propagate to previous elements
-                      uniqueCache[key] = newCache;
-
-                      // A match means we're done; a fail means we have to keep checking
-                      if ((newCache[2] = matcher(elem, context, xml))) {
-                        return true;
-                      }
-                    }
-                  }
-                }
               }
-              return false;
-            };
+            }
+            return false;
+          };
       }
 
       function elementMatcher(matchers) {
         return matchers.length > 1
           ? function (elem, context, xml) {
-              var i = matchers.length;
-              while (i--) {
-                if (!matchers[i](elem, context, xml)) {
-                  return false;
-                }
+            var i = matchers.length;
+            while (i--) {
+              if (!matchers[i](elem, context, xml)) {
+                return false;
               }
-              return true;
             }
+            return true;
+          }
           : matchers[0];
       }
 
@@ -2679,11 +2679,11 @@
                 : elems,
             matcherOut = matcher
               ? // If we have a postFinder, or filtered seed, or non-seed postFilter or preexisting results,
-                postFinder || (seed ? preFilter : preexisting || postFilter)
+              postFinder || (seed ? preFilter : preexisting || postFilter)
                 ? // ...intermediate processing is necessary
-                  []
+                []
                 : // ...otherwise use results directly
-                  results
+                results
               : matcherIn;
 
           // Find primary matches
@@ -2806,12 +2806,12 @@
               return setMatcher(
                 i > 1 && elementMatcher(matchers),
                 i > 1 &&
-                  toSelector(
-                    // If the preceding token was a descendant combinator, insert an implicit any-element `*`
-                    tokens
-                      .slice(0, i - 1)
-                      .concat({ value: tokens[i - 2].type === " " ? "*" : "" })
-                  ).replace(rtrim, "$1"),
+                toSelector(
+                  // If the preceding token was a descendant combinator, insert an implicit any-element `*`
+                  tokens
+                    .slice(0, i - 1)
+                    .concat({ value: tokens[i - 2].type === " " ? "*" : "" })
+                ).replace(rtrim, "$1"),
                 matcher,
                 i < j && matcherFromTokens(tokens.slice(i, j)),
                 j < len && matcherFromTokens((tokens = tokens.slice(j))),
@@ -3048,7 +3048,7 @@
                   token.matches[0].replace(runescape, funescape),
                   (rsibling.test(tokens[0].type) &&
                     testContext(context.parentNode)) ||
-                    context
+                  context
                 ))
               ) {
                 // If seed is empty or no tokens remain, we can return early
@@ -3073,8 +3073,8 @@
           !documentIsHTML,
           results,
           !context ||
-            (rsibling.test(selector) && testContext(context.parentNode)) ||
-            context
+          (rsibling.test(selector) && testContext(context.parentNode)) ||
+          context
         );
         return results;
       };
@@ -3150,8 +3150,8 @@
             return elem[name] === true
               ? name.toLowerCase()
               : (val = elem.getAttributeNode(name)) && val.specified
-              ? val.value
-              : null;
+                ? val.value
+                : null;
           }
         });
       }
@@ -3400,7 +3400,7 @@
         return root.ready !== undefined
           ? root.ready(selector)
           : // Execute immediately if ready is not present
-            selector(jQuery);
+          selector(jQuery);
       }
 
       return jQuery.makeArray(selector, this);
@@ -3453,8 +3453,8 @@
               (targets
                 ? targets.index(cur) > -1
                 : // Don't pass non-elements to Sizzle
-                  cur.nodeType === 1 &&
-                  jQuery.find.matchesSelector(cur, selectors))
+                cur.nodeType === 1 &&
+                jQuery.find.matchesSelector(cur, selectors))
             ) {
               matched.push(cur);
               break;
@@ -3505,7 +3505,7 @@
   });
 
   function sibling(cur, dir) {
-    while ((cur = cur[dir]) && cur.nodeType !== 1) {}
+    while ((cur = cur[dir]) && cur.nodeType !== 1) { }
     return cur;
   }
 
@@ -3846,32 +3846,32 @@
   jQuery.extend({
     Deferred: function (func) {
       var tuples = [
-          // action, add listener, callbacks,
-          // ... .then handlers, argument index, [final state]
-          [
-            "notify",
-            "progress",
-            jQuery.Callbacks("memory"),
-            jQuery.Callbacks("memory"),
-            2,
-          ],
-          [
-            "resolve",
-            "done",
-            jQuery.Callbacks("once memory"),
-            jQuery.Callbacks("once memory"),
-            0,
-            "resolved",
-          ],
-          [
-            "reject",
-            "fail",
-            jQuery.Callbacks("once memory"),
-            jQuery.Callbacks("once memory"),
-            1,
-            "rejected",
-          ],
+        // action, add listener, callbacks,
+        // ... .then handlers, argument index, [final state]
+        [
+          "notify",
+          "progress",
+          jQuery.Callbacks("memory"),
+          jQuery.Callbacks("memory"),
+          2,
         ],
+        [
+          "resolve",
+          "done",
+          jQuery.Callbacks("once memory"),
+          jQuery.Callbacks("once memory"),
+          0,
+          "resolved",
+        ],
+        [
+          "reject",
+          "fail",
+          jQuery.Callbacks("once memory"),
+          jQuery.Callbacks("once memory"),
+          1,
+          "rejected",
+        ],
+      ],
         state = "pending",
         promise = {
           state: function () {
@@ -4001,31 +4001,31 @@
                   process = special
                     ? mightThrow
                     : function () {
-                        try {
-                          mightThrow();
-                        } catch (e) {
-                          if (jQuery.Deferred.exceptionHook) {
-                            jQuery.Deferred.exceptionHook(
-                              e,
-                              process.stackTrace
-                            );
-                          }
-
-                          // Support: Promises/A+ section 2.3.3.3.4.1
-                          // https://promisesaplus.com/#point-61
-                          // Ignore post-resolution exceptions
-                          if (depth + 1 >= maxDepth) {
-                            // Only substitute handlers pass on context
-                            // and multiple values (non-spec behavior)
-                            if (handler !== Thrower) {
-                              that = undefined;
-                              args = [e];
-                            }
-
-                            deferred.rejectWith(that, args);
-                          }
+                      try {
+                        mightThrow();
+                      } catch (e) {
+                        if (jQuery.Deferred.exceptionHook) {
+                          jQuery.Deferred.exceptionHook(
+                            e,
+                            process.stackTrace
+                          );
                         }
-                      };
+
+                        // Support: Promises/A+ section 2.3.3.3.4.1
+                        // https://promisesaplus.com/#point-61
+                        // Ignore post-resolution exceptions
+                        if (depth + 1 >= maxDepth) {
+                          // Only substitute handlers pass on context
+                          // and multiple values (non-spec behavior)
+                          if (handler !== Thrower) {
+                            that = undefined;
+                            args = [e];
+                          }
+
+                          deferred.rejectWith(that, args);
+                        }
+                      }
+                    };
 
                 // Support: Promises/A+ section 2.3.3.3.1
                 // https://promisesaplus.com/#point-57
@@ -4448,7 +4448,7 @@
       return key === undefined
         ? this.cache(owner)
         : // Always use camelCase key (gh-2257)
-          owner[this.expando] && owner[this.expando][camelCase(key)];
+        owner[this.expando] && owner[this.expando][camelCase(key)];
     },
     access: function (owner, key, value) {
       // In cases where either:
@@ -4582,7 +4582,7 @@
       if (typeof data === "string") {
         try {
           data = getData(data);
-        } catch (e) {}
+        } catch (e) { }
 
         // Make sure we set the data so it isn't changed later
         dataUser.set(elem, key, data);
@@ -4792,15 +4792,15 @@
       return data === undefined
         ? this
         : this.each(function () {
-            var queue = jQuery.queue(this, type, data);
+          var queue = jQuery.queue(this, type, data);
 
-            // Ensure a hooks for this queue
-            jQuery._queueHooks(this, type);
+          // Ensure a hooks for this queue
+          jQuery._queueHooks(this, type);
 
-            if (type === "fx" && queue[0] !== "inprogress") {
-              jQuery.dequeue(this, type);
-            }
-          });
+          if (type === "fx" && queue[0] !== "inprogress") {
+            jQuery.dequeue(this, type);
+          }
+        });
     },
     dequeue: function (type) {
       return this.each(function () {
@@ -4851,8 +4851,8 @@
   var documentElement = document.documentElement;
 
   var isAttached = function (elem) {
-      return jQuery.contains(elem.ownerDocument, elem);
-    },
+    return jQuery.contains(elem.ownerDocument, elem);
+  },
     composed = { composed: true };
 
   // Support: IE 9 - 11+, Edge 12 - 18+, iOS 10.0 - 10.2 only
@@ -4892,11 +4892,11 @@
       maxIterations = 20,
       currentValue = tween
         ? function () {
-            return tween.cur();
-          }
+          return tween.cur();
+        }
         : function () {
-            return jQuery.css(elem, prop, "");
-          },
+          return jQuery.css(elem, prop, "");
+        },
       initial = currentValue(),
       unit =
         (valueParts && valueParts[3]) || (jQuery.cssNumber[prop] ? "" : "px"),
@@ -5101,7 +5101,7 @@
     wrapMap.tfoot =
     wrapMap.colgroup =
     wrapMap.caption =
-      wrapMap.thead;
+    wrapMap.thead;
   wrapMap.th = wrapMap.td;
 
   // Support: IE <=9 only
@@ -5266,7 +5266,7 @@
   function safeActiveElement() {
     try {
       return document.activeElement;
-    } catch (err) {}
+    } catch (err) { }
   }
 
   function on(elem, types, selector, data, fn, one) {
@@ -5694,15 +5694,15 @@
 
         get: isFunction(hook)
           ? function () {
-              if (this.originalEvent) {
-                return hook(this.originalEvent);
-              }
+            if (this.originalEvent) {
+              return hook(this.originalEvent);
             }
+          }
           : function () {
-              if (this.originalEvent) {
-                return this.originalEvent[name];
-              }
-            },
+            if (this.originalEvent) {
+              return this.originalEvent[name];
+            }
+          },
 
         set: function (value) {
           Object.defineProperty(this, name, {
@@ -5900,9 +5900,9 @@
       // by a handler lower down the tree; reflect the correct value.
       this.isDefaultPrevented =
         src.defaultPrevented ||
-        (src.defaultPrevented === undefined &&
-          // Support: Android <=2.3 only
-          src.returnValue === false)
+          (src.defaultPrevented === undefined &&
+            // Support: Android <=2.3 only
+            src.returnValue === false)
           ? returnTrue
           : returnFalse;
 
@@ -6449,14 +6449,14 @@
           return value === undefined
             ? jQuery.text(this)
             : this.empty().each(function () {
-                if (
-                  this.nodeType === 1 ||
-                  this.nodeType === 11 ||
-                  this.nodeType === 9
-                ) {
-                  this.textContent = value;
-                }
-              });
+              if (
+                this.nodeType === 1 ||
+                this.nodeType === 11 ||
+                this.nodeType === 9
+              ) {
+                this.textContent = value;
+              }
+            });
         },
         null,
         value,
@@ -6567,7 +6567,7 @@
               elem = 0;
 
               // If using innerHTML throws an exception, use the fallback method
-            } catch (e) {}
+            } catch (e) { }
           }
 
           if (elem) {
@@ -6815,8 +6815,8 @@
           trStyle = window.getComputedStyle(tr);
           reliableTrDimensionsVal =
             parseInt(trStyle.height, 10) +
-              parseInt(trStyle.borderTopWidth, 10) +
-              parseInt(trStyle.borderBottomWidth, 10) ===
+            parseInt(trStyle.borderTopWidth, 10) +
+            parseInt(trStyle.borderBottomWidth, 10) ===
             tr.offsetHeight;
 
           documentElement.removeChild(table);
@@ -6888,8 +6888,8 @@
 
     return ret !== undefined
       ? // Support: IE <=9 - 11 only
-        // IE returns zIndex value as an integer.
-        ret + ""
+      // IE returns zIndex value as an integer.
+      ret + ""
       : ret;
   }
 
@@ -6957,7 +6957,7 @@
     var matches = rcssNum.exec(value);
     return matches
       ? // Guard against undefined "subtract", e.g., when used as in cssHooks
-        Math.max(0, matches[2] - (subtract || 0)) + (matches[3] || "px")
+      Math.max(0, matches[2] - (subtract || 0)) + (matches[3] || "px")
       : value;
   }
 
@@ -7037,10 +7037,10 @@
           0,
           Math.ceil(
             elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)] -
-              computedVal -
-              delta -
-              extra -
-              0.5
+            computedVal -
+            delta -
+            extra -
+            0.5
 
             // If offsetWidth/offsetHeight is unknown, then we can't determine content-box scroll gutter
             // Use an explicit zero to avoid NaN (gh-3964)
@@ -7311,8 +7311,8 @@
             (!elem.getClientRects().length ||
               !elem.getBoundingClientRect().width)
             ? swap(elem, cssShow, function () {
-                return getWidthOrHeight(elem, dimension, extra);
-              })
+              return getWidthOrHeight(elem, dimension, extra);
+            })
             : getWidthOrHeight(elem, dimension, extra);
         }
       },
@@ -7338,9 +7338,9 @@
         if (isBorderBox && scrollboxSizeBuggy) {
           subtract -= Math.ceil(
             elem["offset" + dimension[0].toUpperCase() + dimension.slice(1)] -
-              parseFloat(styles[dimension]) -
-              boxModelAdjustment(elem, dimension, "border", false, styles) -
-              0.5
+            parseFloat(styles[dimension]) -
+            boxModelAdjustment(elem, dimension, "border", false, styles) -
+            0.5
           );
         }
 
@@ -7366,9 +7366,9 @@
         return (
           (parseFloat(curCSS(elem, "marginLeft")) ||
             elem.getBoundingClientRect().left -
-              swap(elem, { marginLeft: 0 }, function () {
-                return elem.getBoundingClientRect().left;
-              })) + "px"
+            swap(elem, { marginLeft: 0 }, function () {
+              return elem.getBoundingClientRect().left;
+            })) + "px"
         );
       }
     }
@@ -8010,10 +8010,10 @@
           return val != null
             ? val
             : // Support: IE <=10 - 11 only
-              // option.text throws exceptions (trac-14686, trac-14858)
-              // Strip and collapse whitespace
-              // https://html.spec.whatwg.org/#strip-and-collapse-whitespace
-              stripAndCollapse(jQuery.text(elem));
+            // option.text throws exceptions (trac-14686, trac-14858)
+            // Strip and collapse whitespace
+            // https://html.spec.whatwg.org/#strip-and-collapse-whitespace
+            stripAndCollapse(jQuery.text(elem));
         },
       },
       select: {
@@ -8351,19 +8351,19 @@
     // IE throws on parseFromString with invalid input.
     try {
       xml = new window.DOMParser().parseFromString(data, "text/xml");
-    } catch (e) {}
+    } catch (e) { }
 
     parserErrorElem = xml && xml.getElementsByTagName("parsererror")[0];
     if (!xml || parserErrorElem) {
       jQuery.error(
         "Invalid XML: " +
-          (parserErrorElem
-            ? jQuery
-                .map(parserErrorElem.childNodes, function (el) {
-                  return el.textContent;
-                })
-                .join("\n")
-            : data)
+        (parserErrorElem
+          ? jQuery
+            .map(parserErrorElem.childNodes, function (el) {
+              return el.textContent;
+            })
+            .join("\n")
+          : data)
       );
     }
     return xml;
@@ -8688,8 +8688,8 @@
         return options === undefined
           ? this
           : this.each(function (i) {
-              jQuery.offset.setOffset(this, options, i);
-            });
+            jQuery.offset.setOffset(this, options, i);
+          });
       }
 
       var rect,
@@ -8874,7 +8874,7 @@
         // Margin is only for outerHeight, outerWidth
         jQuery.fn[funcName] = function (margin, value) {
           var chainable =
-              arguments.length && (defaultExtra || typeof margin !== "boolean"),
+            arguments.length && (defaultExtra || typeof margin !== "boolean"),
             extra =
               defaultExtra ||
               (margin === true || value === true ? "margin" : "border");
@@ -8908,9 +8908,9 @@
 
               return value === undefined
                 ? // Get width or height on the element, requesting but not forcing parseFloat
-                  jQuery.css(elem, type, extra)
+                jQuery.css(elem, type, extra)
                 : // Set width or height on the element
-                  jQuery.style(elem, type, value, extra);
+                jQuery.style(elem, type, value, extra);
             },
             type,
             chainable ? margin : undefined,
@@ -9094,10 +9094,22 @@ $(document).ready(function () {
     <link rel="icon" type="image/png" sizes="32x32" href="https://foxdigital.com.br/mlshop/primebras//favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="https://foxdigital.com.br/mlshop/primebras//favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://foxdigital.com.br/mlshop/primebras//favicon-16x16.png">
-
-    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5S3ZVW9');</script>
+    <!-- End Google Tag Manager -->
     `
   );
+
+  $("body").append(`
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5S3ZVW9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  `);
   $('.andes-carousel-snapped__slide img').css('object-fit', 'contain')
   var linksToReplace = [
     "https://primebras.com.br/p/contato",
