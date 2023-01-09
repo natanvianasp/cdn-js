@@ -8896,12 +8896,17 @@
 
 
 
-$(".site-shopping-info .info-slide .img-container").html('')
+
 
 $(document).ready(function () {
+    $(".site-shopping-info .info-slide .img-container").html('')
 
 
-    $("#section-info > section > div > div:nth-child(1) > div").html(`
+
+    setTimeout(function () {
+
+
+        $("#section-info > section > div > div:nth-child(1) > div").html(`
 <svg width="121" height="77" viewBox="0 0 121 77" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M92 65.582L80 65.591L92 65.606V65.582Z" fill="#F7D032"/>
 <path opacity="0.2" fill-rule="evenodd" clip-rule="evenodd" d="M31 25.582H89V35.582H31V25.582Z" fill="#B0B0B0"/>
@@ -8948,7 +8953,7 @@ $(document).ready(function () {
 
 
 
-    $("#section-info > section > div > div:nth-child(2) > div").html(`<svg width="114" height="87" viewBox="0 0 114 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+        $("#section-info > section > div > div:nth-child(2) > div").html(`<svg width="114" height="87" viewBox="0 0 114 87" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M25.1657 72.4139L79.8161 45.8877L65.2723 15.5786L10.5481 40.9861L25.1657 72.4139Z" fill="#BD0E24"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M53.6288 25.7575L21.767 40.6523C23.3082 43.9642 21.8748 47.9025 18.565 49.4497L23.8518 60.8175C27.1626 59.2706 31.0924 60.7009 32.6333 64.0137L64.4954 49.1179C62.9555 45.8054 64.3892 41.8662 67.6978 40.3195L62.4097 28.9524C59.1011 30.4991 55.1695 29.068 53.6292 25.7565L53.6288 25.7575Z" stroke="#484848" stroke-width="0.8" stroke-linecap="round"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M39.3681 36.7967C43.8322 34.7097 49.1336 36.6403 51.212 41.1076C53.2905 45.5749 51.358 50.8873 46.8927 52.9749C42.4312 55.0608 37.1263 53.1311 35.0491 48.6632C32.9716 44.1962 34.9054 38.8832 39.3681 36.7967Z" fill="white"/>
@@ -8967,7 +8972,7 @@ $(document).ready(function () {
 
 
 
-    $("#section-info > section > div > div:nth-child(3) > div").html(`
+        $("#section-info > section > div > div:nth-child(3) > div").html(`
 <svg width="118" height="52" viewBox="0 0 118 52" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.4" d="M8.45721 50.5L116.5 51.1819" stroke="#B0B0B0" stroke-width="1.2" stroke-linecap="round"/>
 <path d="M109 2H15V14H109V2Z" fill="white"/>
@@ -8989,5 +8994,5 @@ $(document).ready(function () {
 
 
 `)
-
+    }, 1000)
 })
