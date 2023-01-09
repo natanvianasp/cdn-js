@@ -4500,7 +4500,7 @@
   $(function () {
 
 
-    $("#search-button").on("click", function () {
+    $("#search-form").on("submit", function () {
       window.location.href = "https://www.lojajardins.com.br/" + $("#search-input").val();
     });
 
