@@ -9000,4 +9000,11 @@ $(document).ready(function () {
         /* a viewport menos que 400 pixels de largura */
     }
 
+    var swiper = new Swiper(".mySwiper", {
+        autoplay: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
 })
