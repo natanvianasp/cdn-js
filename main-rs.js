@@ -8901,7 +8901,7 @@
 $(document).ready(function () {
 
 
-    if (window.matchMedia("(min-width: 320px)").matches) {
+    if (window.matchMedia("(min-width: 1024px)").matches) {
 
         setTimeout(function () {
             $(".site-shopping-info .info-slide .img-container").html('')
