@@ -8901,10 +8901,10 @@
 $(document).ready(function () {
 
 
-    if (window.matchMedia("(min-width: 768px)").matches) {
-        $(".site-shopping-info .info-slide .img-container").html('')
+    if (window.matchMedia("(min-width: 320px)").matches) {
 
         setTimeout(function () {
+            $(".site-shopping-info .info-slide .img-container").html('')
 
 
             $("#section-info > section > div > div:nth-child(1) > div").html(`
